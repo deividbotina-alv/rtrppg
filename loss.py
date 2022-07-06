@@ -1,3 +1,5 @@
+import torch
+import torch.nn as nn
 #%% Negative Pearson's correlation
 # Traken from https://github.com/ZitongYu/PhysNet/blob/master/NegPearsonLoss.py
 '''
@@ -91,7 +93,6 @@ class NPSNR(nn.Module):
             ##############################
             # JOIN BOTH LOSS FUNCTION
             ##############################
-            #loss += NegPearson+(self.Lambda*NSNR)
             loss += 1 - (pearson+(self.Lambda*SNR))  
             
         loss = loss/rppg.shape[0]

@@ -6,7 +6,7 @@ Original paper: [\[Paper link\]](https://drive.google.com/file/d/1lLTerHpAx0w3Xg
 
 ## Model
 
-#### 3DCNN RT:
+#### 3DCNN RTrPPG architecture:
 
 ![](media/Architecture.png)
 
@@ -15,9 +15,32 @@ Original paper: [\[Paper link\]](https://drive.google.com/file/d/1lLTerHpAx0w3Xg
 ![](media/NPSNR.png)
 
 
-## Setup
+## Installation
+To install an anaconda virtual enviroment with the dependencies, you can run in your anaconda prompt:
+```sh
+conda env create -f \...\rtrppg\rtrppg_env.yaml
+```
+
+### Build
+This project was tested with :
+- Windows 10
+- Anaconda 4.12.0
+- Python 3.9.12
+- Pytorch 1.10.2
 
 ## Usage
+
+### RTrPPG demo
+This demo uses the RTrPPG network trained on the VIPL-HR database [1] to generate an RPPG signal from a video of dimensions: Batch=1, Channels=3 (YUV), Time=128, Width = 8, Height = 8. The demo runs on CPU only so that it works on all hardware. However, changing the code to work on GPU is really easy (note to install the respective packages to work on GPU).
+
+Inside the repository folder run the following command line:
+```sh
+python demo.py --run rtrppg_demo
+```
+
+This demo generates the resulting RPPG signal and saves it in the repository folder as "Output.png."
+
+![](media/Output.png)
 
 ## Citation
 
@@ -35,7 +58,9 @@ RTrPPG is for research purposes only, and commercial use is not allowed.
 
 ## Acknowledgments
 
-- The example videos used belong to the VIPL-HR database proposed in: Niu, Xuesong, et al. "VIPL-HR: A multi-modal database for pulse estimation from less-constrained face video." Asian conference on computer vision. Springer, Cham, 2018.
-
+- The example video used belong to the VIPL-HR database proposed by Niu, Xuesong, et al [1]. 
 - The baseline network was based on the following repository: https://github.com/ZitongYu/PhysNet
+
+## References
+[1] Niu, Xuesong, Hu Han, Shiguang Shan, and Xilin Chen. "VIPL-HR: A multi-modal database for pulse estimation from less-constrained face video." In Asian conference on computer vision, pp. 562-576. Springer, Cham, 2018.
 
